@@ -1,21 +1,22 @@
 import Layout from '../components/MyLayout'
 import Link from 'next/link'
 
-const PostLink = ({ title }) => (
+const PostLink = ({ id }) => (
     <li>
-        <Link href={`/post?title=${title}`}>
-            <a>{title}</a>
+        <Link href="/p/[id]" as={`/p/${id}`}>
+            <a>{id}</a>
         </Link>
     </li>
 )
+
 export default function Blog() {
     return (
         <Layout>
             <h1>My Blog</h1>
             <ul>
-                <PostLink title="Hello Next.js" />
-                <PostLink title="Learn Next.js is awesome" />
-                <PostLink title="Deploy apps with Zeit" />
+                <PostLink id="hello-nextjs" />
+                <PostLink id="learn-nextjs" />
+                <PostLink id="deploy-nextjs" />
             </ul>
         </Layout>
     )
